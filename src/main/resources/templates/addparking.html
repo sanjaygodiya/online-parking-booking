@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<link href="css/styles.css" rel="stylesheet" />
+<title>BookMyParking</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body class="parallax">
+	<div class="center">Welcome to BookMyParking Admin Page</div>
+	<form th:action="@{/addparking}" th:object="${parking}" method="post">
+		<div class="container">
+			<p>Welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+			<span class="right-align"><a th:href="@{admin}">Home</a></span></p>
+			<label>Parking Name : </label> <input type="text" th:field="*{parkingname}" placeholder="Enter Parking Name" required>
+			<label>Parking Address : </label> <input type="text" th:field="*{parkingaddress}" placeholder="Enter Parking Address" required> 
+			<label>City : </label>
+			<select th:field="*{parkingcity}" required>
+			<option value="">Select Your City</option>
+		    <option value="Mumbai">Mumbai</option>
+		    <option value="Navi Mumbai">Navi Mumbai</option>	
+		    <option value="Bengaluru">Bengaluru</option>
+		    <option value="Hyderabad">Hyderabad</option>
+		  	</select>
+			<label>Parking Owner : </label> <input type="text" th:field="*{parkingowner}" placeholder="Enter Parking Owner Name" required>
+			<label>Parking Owner Phone : </label><input type="text" th:field="*{parkingownerphone}" placeholder="Enter Parking Owner Phone Number" maxlength="10" required>
+			<p th:errors = "*{parkingownerphone}" class="text-warning" th:if="${#fields.hasErrors('parkingownerphone')}"></p>
+			<label>Parking Manager : </label> <input type="text" th:field="*{parkingmanager}" placeholder="Enter Parking Manager Name" required>
+			<label>Parking Manager Phone : </label><input type="text" th:field="*{parkingmanagerphone}" placeholder="Enter Parking Manager Phone Number" maxlength="10" required>
+			<p th:errors = "*{parkingmanagerphone}" class="text-warning" th:if="${#fields.hasErrors('parkingmanagerphone')}"></p>
+		  	<label>Two Wheeler Count : </label><input type="text" th:field="*{twowheelertotalcount}" placeholder="Enter Two Wheeler Count" maxlength="3" required>
+		  	<label>Two Wheeler Parking Rate: </label><input type="text" th:field="*{twowheelerparkingrate}" placeholder="Enter Two Wheeler Parking Rate" maxlength="3" required>
+		  	<label>Four Wheeler Count : </label><input type="text" th:field="*{fourwheelertotalcount}" placeholder="Enter Four Wheeler Count" maxlength="3" required>		  	
+		  	<label>Four Wheeler Parking Rate : </label><input type="text" th:field="*{fourwheelerparkingrate}" placeholder="Enter Four Wheeler Parking Rate" maxlength="3" required>		  	
+			<button type="submit">Save Parking Details</button>
+		</div>
+	</form>
+	<form th:action="@{/logout}" method="post">
+		<div class="container">
+			<button type="submit" class="logout">Logout</button>
+		</div>
+	</form>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="css/styles.css" />
+<title>BookMyParking</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body class="parallax">
+	<div class="center">Welcome to BookMyParking</div>
+	<form>
+		<div class="container">
+			<p>Dear <b>[[${#request.userPrincipal.principal.fullName}]]</b>,</p>
+			<b>Congratulations Booking Successful !!</b>
+			<p>Here are your booking details:</p>
+			Booking Id : <span th:text="${bookingSuccess.bookingid}"></span><br>
+			Booking Date : <span th:text="${bookingSuccess.bookingdate}"></span><br>
+			Phone :	<span th:text="${bookingSuccess.userphone}"></span><br>
+			Parking Name : <span th:text="${bookingSuccess.parkingname}"></span><br>
+			Parking Address : <span th:text="${bookingSuccess.parkingaddress}"></span><br>
+			Vehicle Type : <span th:text="${bookingSuccess.vehicletype}"></span><br>
+			Vehicle Number : <span th:text="${bookingSuccess.vehicleregistrationnumber}"></span><br>
+			Parking Start Time : <span th:text="${bookingSuccess.parkingstartdatetime}"></span><br>
+			Parking End Time : <span th:text="${bookingSuccess.parkingenddatetime}"></span><br>
+			Total Parking Hours : <span th:text="${bookingSuccess.totalparkinghours}"></span><br>
+			Bill Amount : <span th:text="${bookingSuccess.billamount}"></span>
+			<p>Book Another? <a th:href="@{home}">Click Here</a></p>
+		</div>
+	</form>
+	<form th:action="@{/logout}" method="post">
+		<div class="container">
+			<button type="submit" class="logout">Logout</button>
+		</div>
+	</form>
+</body>
+</html>

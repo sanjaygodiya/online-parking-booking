@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<link href="css/styles.css" rel="stylesheet" />
+<title>BookMyParking</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body class="parallax">
+	<div class="center">Welcome to BookMyParking</div>
+	<form>
+		<div class="container">
+			<p>Something went wrong, try again</p>
+			<p>New User? <a th:href="@{register}">Register Here</a></p>
+			<p>Already registered? <a th:href="@{login}"> Login Here</a></p>
+		</div>
+	</form>
+</body>
+</html>

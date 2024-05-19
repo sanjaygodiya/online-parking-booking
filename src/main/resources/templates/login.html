@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<link th:rel="stylesheet" th:href="@{css/styles.css}"/>
+<title>BookMyParking</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body class="parallax">
+	<div class="center">Welcome to BookMyParking</div>
+	<form th:action="@{/login}" method="post"> 
+		<div class="container">
+			<div class="text-warning" th:if="${param.error}"> 
+      		<p th:text="${session.error}" th:unless="${session == null}"></p></div>
+      		<div class="text-warning" th:if="${param.logout}">You have been logged out.</div>
+			<label>Phone : </label><input type="text" name="username" placeholder="Enter Phone Number" maxlength="10" required> 
+			<label>Password : </label><input type="password" name="password" placeholder="Enter Password" required>
+			<button type="submit">Login</button>
+			New User? <a th:href="@{register}">Register Here</a>
+		</div>
+	</form>
+</body>
+</html>

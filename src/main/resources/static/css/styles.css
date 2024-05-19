@@ -1,0 +1,119 @@
+button {
+	background-color: #4CAF50;
+	width: 100%;
+	color: black;
+	padding: 15px;
+	margin: 10px 0px;
+	border: none;
+	cursor: pointer;
+	font-size: 15px
+}
+
+form {
+	border: 3px solid #f1f1f1;
+	margin-left: 25%;
+	margin-top: 1%;
+	width: 50%;
+}
+
+input[type=text], input[type=password], input[type=datetime-local], input[type=date] {
+	width: 100%;
+	margin: 8px 0;
+	padding: 12px 20px;
+	display: inline-block;
+	border: 2px solid green;
+	box-sizing: border-box;
+}
+
+select {
+	width: 100%;
+	margin: 8px 0;
+	padding: 12px 20px;
+	display: inline-block;
+	border: 2px solid green;
+	box-sizing: border-box;
+}
+
+button:hover {
+	opacity: 0.7;
+}
+
+button:disabled {
+	opacity: 0.7;
+}
+
+.tb-th-td {
+	border: 1px solid black;
+  	border-collapse: collapse;
+}
+
+.tb {
+	width: 100%;
+}
+
+.container {
+	padding: 25px;
+	background-color: lightblue;
+}
+
+.logout {
+	background-color: #ff0a0a;
+	width: 100%;
+	color: black;
+	padding: 15px;
+	margin: 10px 0px;
+	border: none;
+	cursor: pointer;
+	font-size: 15px
+}
+
+.center {
+	margin-top: 10px;
+	text-align: center;
+	font-size: 30px;
+	color: white;
+}
+
+.text-warning {
+	font-family: Calibri, Helvetica, sans-serif;
+	color: red;
+}
+
+.right-align {
+	float: right;
+}
+
+.border {
+	border: 3px solid #f1f1f1;
+	margin-left: 5%;
+	margin-top: 1%;
+	width: 91%;
+}
+
+.button-admin {
+	background-color: #4CAF50;
+	width: 100%;
+	color: black;
+	padding: 15px;
+	margin: 10px 0px;
+	border: none;
+	cursor: pointer;
+	font-size: 15px;
+	margin-top: 29px;
+}
+
+.heading-admin {
+	text-align: center;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.parallax {
+	align-self: center;
+	font-family: Calibri, Helvetica, sans-serif;
+	background-color: #cccccc;
+	background-image: url("../img/car-parking.jpg");
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+}

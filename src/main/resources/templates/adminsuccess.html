@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<link href="css/styles.css" rel="stylesheet" />
+<title>BookMyParking</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body class="parallax">
+	<div class="center">Welcome to BookMyParking Admin Page</div>
+	<form>
+		<div class="container">
+			<p>Parking Details Saved Successfully</p>
+			<a th:href="@{addparking}">Save another</a>
+		</div>
+	</form>
+	<form th:action="@{/logout}" method="post">
+		<div class="container">
+			<button type="submit" class="logout">Logout</button>
+		</div>
+	</form>
+</body>
+</html>

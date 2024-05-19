@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="css/styles.css" />
+<title>BookMyParking</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body class="parallax">
+	<div class="center">Welcome to BookMyParking</div>
+	<form th:action="@{/booking}" th:object="${booking}" method="post">
+		<div class="container">
+			<p>Welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b><span class="right-align">
+			<a th:href="@{mybookings}">My Bookings</a></span></p>
+			<label>Select City : </label>
+			<select name="parkingcity" id="parkingcity" th:field="*{parkingcity}" required>
+			<option value="">Select Your City</option>
+		    <option value="Mumbai">Mumbai</option>
+		    <option value="Navi Mumbai">Navi Mumbai</option>	
+		    <option value="Bengaluru">Bengaluru</option>
+		    <option value="Hyderabad">Hyderabad</option>
+		  	</select>
+		  	<label>Select Parking : </label>
+			<select name="parkingid" id="parkingid" th:field="*{parkingid}" required>
+			<option value=0>Select Your Parking</option>
+		  	</select>
+		  	<p th:errors = "*{parkingid}" class="text-warning" th:if="${#fields.hasErrors('parkingid')}"></p>
+		  	<label>Select Vehicle : </label>
+			<select th:field="*{vehicletype}" required>
+			<option value="">Select Your Vehicle</option>
+		    <option value="2Wheeler">Two Wheeler</option>
+		    <option value="4Wheeler">Four Wheeler</option>
+		  	</select>
+		  	<label>Vehicle Registration Number :</label>
+		  	<input type="text" th:field="*{vehicleregistrationnumber}" placeholder="Enter Vehicle Registration Number" required>
+		  	<label>Select Parking Start Date & Time:</label>
+		  	<input type="datetime-local" th:field="*{parkingstartdatetime}" name="parkingstartdatetime" id="parkingstartdatetime" required>
+		  	<label>Select Parking End Date & Time:</label>
+		  	<input type="datetime-local" th:field="*{parkingenddatetime}" name="parkingenddatetime" id="parkingenddatetime" required>
+			<p>Total Parking Hours : <input type=hidden id="totalparkinghours" name="totalparkinghours" th:field="*{totalparkinghours}"><span class="totalparkinghours"></span></p>
+			<p>Total Parking Charges : <input type=hidden id="billamount" name="billamount" th:field="*{billamount}"><span class="billamount"></span></p>
+			<p>Available Parking Slots : <span class=availableslots></span> </p>
+			<button type="submit" id="bookSubmit">Book</button>
+		</div>
+	</form>
+	<form th:action="@{/logout}" method="post">
+		<div class="container">
+			<button type="submit" class="logout">Logout</button>
+		</div>
+	</form>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/mainscript.js"></script>
+</body>
+</html>

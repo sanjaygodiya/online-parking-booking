@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<link href="css/styles.css" rel="stylesheet" />
+<title>BookMyParking</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body class="parallax">
+	<div class="center">Welcome to BookMyParking Admin Page</div>
+	<div class="border">
+		<div class="container">
+			<p>Welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b><span class="right-align">
+			<a th:href="@{addparking}">Add New Parking</a>&nbsp;&nbsp;<a class="text-warning" th:href="@{/logout}">Logout</a></span></p>	
+			<p class="heading-admin">Booking History</p>			
+			<table><tr><td><label>Select City : </label>
+			<select name="parkingcity" id="parkingcity" required>
+			<option value="">Select City</option>
+		    <option value="Mumbai">Mumbai</option>
+		    <option value="Navi Mumbai">Navi Mumbai</option>	
+		    <option value="Bengaluru">Bengaluru</option>
+		    <option value="Hyderabad">Hyderabad</option>
+		  	</select></td><td>
+		  	<label>Select Parking : </label>
+			<select name="parkingid" id="parkingid" required>
+			<option value=0>Select Parking</option>
+		  	</select></td><td>
+		  	<label>Select Vehicle : </label>
+			<select name="vehicletype" id="vehicletype" required>
+			<option value="">Select Vehicle</option>
+		    <option value="2Wheeler">Two Wheeler</option>
+		    <option value="4Wheeler">Four Wheeler</option>
+		  	</select></td><td>
+		  	<label>Select Parking/Booking Date:</label>
+		  	<input type="date" name="date" id="date" required></td><td>
+			<button class ="button-admin" onclick="getBookings()">Submit</button></td></tr></table>
+			<p><span class="bookings" id="bookings"></span></p>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/getparkinglist.js"></script>
+</body>
+</html>

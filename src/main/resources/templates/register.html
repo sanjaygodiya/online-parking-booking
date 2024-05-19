@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<link th:rel="stylesheet" th:href="@{css/styles.css}"/>
+<title>BookMyParking</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body class="parallax">
+	<div class="center">Welcome to BookMyParking</div>
+	<form th:action="@{/register}" th:object="${user}" method="post">
+		<div class="container">
+			<label>First Name : </label> <input type="text" th:field="*{firstname}" placeholder="Enter First Name" required>
+			<label>Last Name : </label> <input type="text" th:field="*{lastname}" placeholder="Enter Last Name" required> 
+			<label>Email : </label> <input type="text" th:field="*{email}" placeholder="Enter Email" required>
+			<label>Phone : </label><input type="text" th:field="*{phone}" placeholder="Enter Phone Number" maxlength="10" required>
+			<p th:errors = "*{phone}" class="text-warning" th:if="${#fields.hasErrors('phone')}"></p>
+			<label>City : </label>
+			<select th:field="*{city}" required>
+			<option value="">Select Your City</option>
+		    <option value="Mumbai">Mumbai</option>
+		    <option value="Navi Mumbai">Navi Mumbai</option>	
+		    <option value="Bengaluru">Bengaluru</option>
+		    <option value="Hyderabad">Hyderabad</option>
+		  	</select>
+			<label>Password : </label><input type="password" th:field="*{password}" name="password" placeholder="Enter Password" required>
+			<button type="submit">Register</button>
+			Already registered? <a th:href="@{login}"> Login Here</a>
+		</div>
+	</form>
+</body>
+</html>

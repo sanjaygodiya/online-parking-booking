@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="css/styles.css" />
+<title>BookMyParking</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body class="parallax">
+	<div class="center">Welcome to BookMyParking</div>
+	<div class="border">
+		<div class="container">
+			<p>Welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b><span class="right-align">
+			<a th:href="@{home}">Home</a>&nbsp;&nbsp;<a class="text-warning" th:href="@{/logout}">Logout</a></span></p>
+			<p class="heading-admin">Your Booking History</p>
+			<table class="tb-th-td tb"><tr>
+			<th class="tb-th-td">Booking Id</th>
+			<th class="tb-th-td">Parking Name</th>
+			<th class="tb-th-td">Vehicle Type</th>
+			<th class="tb-th-td">Vehicle Number</th>
+			<th class="tb-th-td">Booking Date</th>
+			<th class="tb-th-td">Parking Start DateTime</th>
+			<th class="tb-th-td">Parking End DateTime</th>
+			<th class="tb-th-td">Total Hours</th>
+			<th class="tb-th-td">Bill Amount</th>			
+			<tr th:each="booking : ${bookingList}">
+			<td class="tb-th-td"><span th:text="${booking[0]}"></span></td>
+			<td class="tb-th-td"><span th:text="${booking[11]}"></span></td>
+			<td class="tb-th-td"><span th:text="${booking[4]}"></span></td>
+			<td class="tb-th-td"><span th:text="${booking[5]}"></span></td>
+			<td class="tb-th-td"><span th:text="${booking[10]}"></span></td>
+			<td class="tb-th-td"><span th:text="${booking[6]}"></span></td>
+            <td class="tb-th-td"><span th:text="${booking[7]}"></span></td>
+            <td class="tb-th-td"><span th:text="${booking[8]}"></span></td>
+            <td class="tb-th-td"><span th:text="${booking[9]}"></span></td></tr>  
+            </table>
+		</div>
+	</div>
+</body>
+</html>
