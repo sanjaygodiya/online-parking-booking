@@ -6,6 +6,7 @@
 4. Run mvn clean install to build the application
 5. Run mvn spring-boot:run to start the application
 6. Troubleshoot on need basis
+7. Check application home page http://localhost:8081/
 
 **Application Welcome Page**
 
